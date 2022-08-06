@@ -2,7 +2,7 @@ name: create stale issue after 1 day
 
 on:
   schedule:
-    - cron: "3 * * * *"
+    - cron: '* * * * *'
 
 permissions:
   contents: read
@@ -12,7 +12,7 @@ jobs:
   raise_stale_issue:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - uses: JasonEtco/create-an-issue@v2
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
