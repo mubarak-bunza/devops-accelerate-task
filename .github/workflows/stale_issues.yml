@@ -1,0 +1,19 @@
+name: stale and close issues with comments
+
+on:
+  schedule:
+    - cron: '30 1 * * *'
+
+permissions:
+  issues: write
+
+jobs:
+  raise_stale_issue:
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/stale@v5
+        with:
+          stale-issue-message: 'Issue open for 1 day with no activity. Will be closed after 1 more day.'
+          close-issue-message: 'There is no activity for 2 days, issue closed.'
+          days-before-issue-stale: 1
+          days-before-issue-close: 2
