@@ -8,21 +8,22 @@ jobs:
   task1:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.TOKEN }}
+        issue-message: '# Thanks for opening your first issue, please check if similar issue open already.'
+        pr-message: |-
+          # Hurray! 
+            You just raised a PR, 
+            Please check our contribution guidelines for conformity
+            
+  task2:
+    runs-on: ubuntu-latest
+    steps:
     - uses: actions/checkout@v3
     - name: print os name
       run: uname
     - name: list files
       run: ls
     - name: unique message
-      run:  echo "devops is amazing"
-    
-  task2:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/first-interaction@v1
-      with:
-        repo-token: ${{ secrets.TOKEN }}
-        issue-message: '# Thanks for opening your first issue, please check if similar issue open already.'
-        pr-message: |-
-          '# Hurray! 
-            You just raised a PR, please check our contribution guidelines for conformity '
+      run:  echo "devops is amazing!"
